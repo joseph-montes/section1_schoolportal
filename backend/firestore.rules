@@ -2,6 +2,85 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    function ownsUser(userId) {
+      return signedIn() && request.auth.uid == userId;
+    }
+
+    match /users/{userId} {
+      allow create: if ownsUser(userId)
+        && request.resource.data.role != 'admin';
+      allow read: if ownsUser(userId) || isAdmin();
+      allow update: if isAdmin()
+        || (ownsUser(userId)
+          && request.resource.data.role == resource.data.role);
+      allow delete: if isAdmin();
+    }
+
+    match /announcements/{announcementId} {
+      allow read: if (resource.data.published == true) || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    match /subjects/{subjectId} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+
+    match /classes/{classId} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+
+    match /students/{studentId} {
+      allow read: if isAdmin() || ownsUser(studentId);
+      allow write: if isAdmin();
+    }
+
+    match /teachers/{teacherId} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+
+    match /enrollment/{applicationId} {
+      allow create: if signedIn()
+        && request.resource.data.studentId == request.auth.uid;
+      allow read: if isAdmin()
+        || (signedIn() && resource.data.studentId == request.auth.uid);
+      allow update, delete: if isAdmin();
+    }
+
+    match /grades/{gradeId} {
+      allow read: if isAdmin()
+        || (signedIn() && resource.data.studentId == request.auth.uid);
+      allow write: if isAdmin();
+    }
+
+    match /attendance/{attendanceId} {
+      allow read: if isAdmin()
+        || (signedIn() && resource.data.studentId == request.auth.uid);
+      allow write: if isAdmin();
+    }
+
+    match /payments/{paymentId} {
+      allow read: if isAdmin()
+        || (signedIn() && resource.data.studentId == request.auth.uid);
+      allow write: if isAdmin();
+    }
+
+    match /reports/{reportId} {
+      allow read, write: if isAdmin();
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }
