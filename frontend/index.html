@@ -1,58 +1,1106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A simple school portal dashboard.">
-  <title>School Portal</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>CEC Portal</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html">Section 1 <span>School Portal</span></a>
-    <nav aria-label="Main navigation">
-      <a href="#announcements">Announcements</a>
-      <a href="#quick-links">Quick links</a>
-      <button class="button button-outline" id="sign-out-button" type="button">Sign out</button>
-    </nav>
-  </header>
-
-  <main class="page-shell">
-    <section class="welcome-panel" aria-labelledby="welcome-title">
-      <div>
-        <p class="eyebrow">Student dashboard</p>
-        <h1 id="welcome-title">Good morning, <span id="student-name">Student</span>.</h1>
-        <p class="welcome-copy">Stay close to your classes, assignments, and the people who keep your school day moving.</p>
-      </div>
-      <div class="date-block">
-        <span id="current-day">Today</span>
-        <strong id="current-date">Loading date...</strong>
-      </div>
-    </section>
-
-    <section class="stats-grid" aria-label="School summary">
-      <article class="stat-card"><span class="stat-label">Attendance</span><strong>96%</strong><span class="stat-note">This term</span></article>
-      <article class="stat-card"><span class="stat-label">Assignments</span><strong>04</strong><span class="stat-note">Due this week</span></article>
-      <article class="stat-card"><span class="stat-label">Next class</span><strong>09:30</strong><span class="stat-note">Mathematics</span></article>
-    </section>
-
-    <div class="content-grid">
-      <section class="content-section" id="announcements" aria-labelledby="announcements-title">
-        <div class="section-heading"><div><p class="eyebrow">Stay informed</p><h2 id="announcements-title">Announcements</h2></div><button class="text-button" type="button">View all</button></div>
-        <div class="announcement-list" id="announcement-list"><p class="empty-state">Loading announcements...</p></div>
-      </section>
-
-      <aside class="content-section quick-links" id="quick-links" aria-labelledby="quick-links-title">
-        <div class="section-heading"><div><p class="eyebrow">Your shortcuts</p><h2 id="quick-links-title">Quick links</h2></div></div>
-        <a class="quick-link" href="#">Class schedule <span aria-hidden="true">&#8594;</span></a>
-        <a class="quick-link" href="#">Assignments <span aria-hidden="true">&#8594;</span></a>
-        <a class="quick-link" href="#">Messages <span aria-hidden="true">&#8594;</span></a>
-        <a class="quick-link" href="#">Student profile <span aria-hidden="true">&#8594;</span></a>
-      </aside>
+<!-- =====================================================
+     TOAST MESSAGE
+===================================================== -->
+<div
+    id="toast"
+    class="toast"
+></div>
+<!-- =====================================================
+     LANDING PAGE
+===================================================== -->
+<section
+    id="landingPage"
+    class="page landing-page"
+>
+    <!-- HEADER -->
+    <header class="public-header">
+        <div class="brand">
+            <img
+                src="assets/cec-logo.png"
+                alt="CEC Logo"
+            >
+            <span>
+                CEC <b>PORTAL</b>
+            </span>
+        </div>
+        <nav class="public-nav">
+            <button class="nav-link active" data-scroll="home">HOME</button>
+            <button class="nav-link" data-scroll="about">ABOUT</button>
+            <button class="nav-link" data-scroll="program">PROGRAM</button>
+            <button class="nav-link" data-scroll="contact">CONTACT</button>
+        </nav>
+        <div class="top-login-actions">
+            <button class="login-top user-login-top" id="openLogin">LOGIN AS USER</button>
+            <button class="login-top admin-login-top" id="openAdminLogin">LOGIN AS ADMIN</button>
+        </div>
+    </header>
+    <!-- =================================================
+         HERO
+    ================================================== -->
+    <main>
+        <section
+            class="hero"
+            id="home"
+        >
+            <div class="hero-copy">
+                <p class="eyebrow">
+                    WELCOME TO CEBU EASTERN COLLEGE
+                </p>
+                <h1>
+                    Your Future<br>
+                    <span>
+                        Starts Here
+                    </span>
+                </h1>
+                <p class="hero-text">
+                    Discover opportunities, manage your
+                    academic journey, and stay connected
+                    with your school community—all in one place.
+                </p>
+                <div class="hero-actions">
+                    <button
+                        class="outline-btn"
+                        id="exploreBtn"
+                    >
+                        Explore Programs
+                    </button>
+                    <button
+                        class="outline-btn"
+                        id="studentPortalBtn"
+                    >
+                        Student Portal
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="shape shape-one"></div>
+                <div class="shape shape-two"></div>
+                <div class="campus-frame">
+                    <img
+                        src="assets/cec-building.png"
+                        alt="Cebu Eastern College"
+                    >
+                    <div class="campus-overlay">
+                        <img
+                            src="assets/cec-logo.png"
+                            alt="CEC Logo"
+                        >
+                        <strong>
+                            CEBU EASTERN COLLEGE
+                        </strong>
+                        <span>
+                            Be an Easternian
+                        </span>
+                        <small>
+                            108 years of Continuing Teaching!
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =================================================
+             ABOUT
+        ================================================== -->
+        <section
+            class="public-section"
+            id="about"
+        >
+            <div>
+                <p class="eyebrow">
+                    ABOUT CEC PORTAL
+                </p>
+                <h2>
+                    A simple place for your school needs.
+                </h2>
+            </div>
+            <p>
+                The CEC Student Portal provides students
+                with one organized place to access their
+                academic information, schedules, grades,
+                attendance, subjects, payments and school
+                announcements.
+            </p>
+        </section>
+        <!-- =================================================
+             PROGRAMS
+        ================================================== -->
+        <section
+            class="public-section programs"
+            id="program"
+        >
+            <p class="eyebrow">
+                PROGRAMS
+            </p>
+            <h2>
+                Academic Programs
+            </h2>
+            <div class="program-grid">
+                <article>
+                    <span>
+                        01
+                    </span>
+                    <h3>
+                        Information Technology
+                    </h3>
+                    <p>
+                        Technology, programming,
+                        systems and digital skills.
+                    </p>
+                </article>
+                <article>
+                    <span>
+                        02
+                    </span>
+                    <h3>
+                        Business Programs
+                    </h3>
+                    <p>
+                        Business, management and
+                        entrepreneurship fundamentals.
+                    </p>
+                </article>
+                <article>
+                    <span>
+                        03
+                    </span>
+                    <h3>
+                        Education
+                    </h3>
+                    <p>
+                        Learning-focused programs
+                        for future educators.
+                    </p>
+                </article>
+            </div>
+        </section>
+        <!-- =================================================
+             CONTACT
+        ================================================== -->
+        <section
+            class="public-section contact-section"
+            id="contact"
+        >
+            <div>
+                <p class="eyebrow">
+                    CONTACT
+                </p>
+                <h2>
+                    Stay connected with CEC.
+                </h2>
+            </div>
+            <p>
+                Use the student portal to stay updated
+                with your academic records, school
+                activities and important announcements.
+            </p>
+        </section>
+    </main>
+</section>
+<!-- =====================================================
+     LOGIN / REGISTER PAGE
+===================================================== -->
+<section id="authPage" class="page auth-page hidden">
+    <!-- LEFT IMAGE -->
+    <div class="auth-left">
+        <img
+            src="assets/cec-building.png"
+            alt="CEC Building"
+        >
+        <div class="auth-image-overlay">
+            <div class="auth-image-title">
+                CEBU EASTERN COLLEGE
+            </div>
+            <div class="auth-image-subtitle">
+                STUDENT PORTAL
+            </div>
+        </div>
     </div>
-  </main>
-
-  <footer class="site-footer">&copy; <span id="current-year"></span> Section 1 School Portal</footer>
-  <script type="module" src="js/app.js"></script>
+    <!-- RIGHT SIDE -->
+    <div class="auth-right">
+        <button class="back-home" id="backHome">← Back to Portal</button>
+        <div class="auth-brand">
+            <img src="assets/cec-logo.png" alt="CEC Logo">
+            <strong>
+                CEBU EASTERN COLLEGE<br>
+                <span>STUDENT PORTAL</span>
+            </strong>
+        </div>
+        <!-- =================================================
+             LOGIN CARD
+        ================================================== -->
+        <div id="loginCard" class="auth-card">
+            <h2>LOG IN</h2>
+            <p>Welcome back. Please enter your credentials.</p>
+            <form id="loginForm">
+                <label>
+                    Student ID
+                    <div class="input-wrap">
+                        <span>
+                            ▣
+                        </span>
+                        <input
+                            id="loginId"
+                            type="text"
+                            placeholder="Enter Student ID"
+                            required
+                        >
+                    </div>
+                </label>
+                <label>
+                    Password
+                    <div class="input-wrap">
+                        <span>
+                            🔒
+                        </span>
+                        <input
+                            id="loginPassword"
+                            type="password"
+                            placeholder="Enter Password"
+                            required
+                        >
+                        <button
+                            type="button"
+                            class="eye"
+                            data-target="loginPassword"
+                        >
+                            ◉
+                        </button>
+                    </div>
+                </label>
+                <button
+                    class="primary-btn"
+                    type="submit"
+                >
+                    LOGIN
+                </button>
+                <button
+                    type="button"
+                    class="text-btn"
+                    id="forgotBtn"
+                >
+                    Forgot Password?
+                </button>
+            </form>
+            <div class="auth-switch">
+                Don't have an account?
+                <button id="showRegister">
+                    REGISTER HERE
+                </button>
+            </div>
+        </div>
+        <!-- =================================================
+             REGISTER CARD
+        ================================================== -->
+        <div
+            id="registerCard"
+            class="auth-card hidden"
+        >
+            <h2>
+                Create Account
+            </h2>
+            <p>
+                Register your student credentials.
+            </p>
+            <form id="registerForm">
+                <label>
+                    Student ID
+                    <div class="input-wrap">
+                        <span>
+                            ▣
+                        </span>
+                        <input
+                            id="regId"
+                            type="text"
+                            placeholder="Enter Student ID"
+                            required
+                        >
+                    </div>
+                </label>
+                <label>
+                    Password
+                    <div class="input-wrap">
+                        <span>
+                            🔒
+                        </span>
+                        <input
+                            id="regPassword"
+                            type="password"
+                            placeholder="Create Password"
+                            required
+                        >
+                        <button
+                            type="button"
+                            class="eye"
+                            data-target="regPassword"
+                        >
+                            ◉
+                        </button>
+                    </div>
+                </label>
+                <label>
+                    Confirm Password
+                    <div class="input-wrap">
+                        <span>
+                            🔒
+                        </span>
+                        <input
+                            id="regConfirm"
+                            type="password"
+                            placeholder="Confirm Password"
+                            required
+                        >
+                        <button
+                            type="button"
+                            class="eye"
+                            data-target="regConfirm"
+                        >
+                            ◉
+                        </button>
+                    </div>
+                </label>
+                <div class="terms-checkbox">
+                    <input
+                        type="checkbox"
+                        id="termsCheckbox"
+                        name="terms"
+                    >
+                    <label for="termsCheckbox">
+                        I agree to the
+                        <button
+                            type="button"
+                            id="openTerms"
+                            class="terms-link"
+                        >
+                            Terms and Conditions
+                        </button>
+                    </label>
+                </div>
+                <button
+                    class="primary-btn"
+                    type="submit"
+                >
+                    REGISTER
+                </button>
+            </form>
+            <div class="auth-switch">
+                Already have an account?
+                <button id="showLogin">
+                    LOGIN HERE
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ADMIN LOGIN -->
+<section id="adminAuthPage" class="page admin-auth-page hidden">
+    <div class="auth-left">
+        <img src="assets/cec-building.png" alt="CEC Building">
+        <div class="auth-image-overlay">
+            <div class="auth-image-title">CEBU EASTERN COLLEGE</div>
+            <div class="auth-image-subtitle">ADMIN PORTAL</div>
+        </div>
+    </div>
+    <div class="auth-right">
+        <button class="back-home" id="backHomeAdmin">← Back to Portal</button>
+        <div class="auth-brand">
+            <img src="assets/cec-logo.png" alt="CEC Logo">
+            <strong>CEBU EASTERN COLLEGE<br><span>ADMIN PORTAL</span></strong>
+        </div>
+        <div class="auth-card admin-login-card">
+            <h2>ADMIN LOGIN</h2>
+            <p>Sign in to manage the CEC school portal.</p>
+            <form id="adminLoginForm">
+                <label>Admin Username
+                    <div class="input-wrap"><span>▣</span><input id="adminUsername" type="text" placeholder="Enter Admin Username" required></div>
+                </label>
+                <label>Password
+                    <div class="input-wrap"><span>🔒</span><input id="adminPassword" type="password" placeholder="Enter Admin Password" required><button type="button" class="eye" data-target="adminPassword">◉</button></div>
+                </label>
+                <button class="primary-btn" type="submit">LOGIN AS ADMIN</button>
+            </form>
+            <div class="admin-demo-note">Demo account: <b>admin</b> / <b>admin123</b></div>
+        </div>
+    </div>
+</section>
+<!-- ADMIN DASHBOARD -->
+<section id="adminDashboardPage" class="page dashboard-page admin-dashboard-page hidden">
+    <header class="dash-header">
+        <div class="brand"><img src="assets/cec-logo.png" alt="CEC Logo"><span>CEC <b>ADMIN PORTAL</b></span></div>
+        <nav class="dash-nav">
+            <button class="active" data-admin-top-view="home">HOME</button>
+            <button data-admin-top-view="students">STUDENTS</button>
+            <button data-admin-top-view="teachers">TEACHERS</button>
+            <button data-admin-top-view="announcements">ANNOUNCEMENTS</button>
+        </nav>
+        <button class="profile-circle" id="adminProfileBtn" title="Admin Profile">♙</button>
+    </header>
+    <div class="dashboard-body">
+        <aside class="sidebar">
+            <div class="sidebar-profile"><div class="sidebar-avatar">♙</div><div><strong id="adminSidebarName">Admin</strong><span>Administrator</span></div></div>
+            <div class="side-tools">
+                <button type="button" id="adminNotificationsBtn">🔔<small>Notifications</small></button>
+                <button type="button" id="adminSettingsBtn">⚙<small>Settings</small></button>
+            </div>
+            <h4>ADMINISTRATION</h4>
+            <button class="side-link admin-side-link active" data-admin-view="home"><span class="side-icon">▣</span><label>Dashboard</label></button>
+            <button class="side-link admin-side-link" data-admin-view="students"><span class="side-icon">♙</span><label>Students</label></button>
+            <button class="side-link admin-side-link" data-admin-view="teachers"><span class="side-icon">♙</span><label>Teachers</label></button>
+            <button class="side-link admin-side-link" data-admin-view="subjects"><span class="side-icon">☑</span><label>Subjects</label></button>
+            <button class="side-link admin-side-link" data-admin-view="classes"><span class="side-icon">▤</span><label>Classes &amp; Sections</label></button>
+            <button class="side-link admin-side-link" data-admin-view="enrollment"><span class="side-icon">+</span><label>Enrollment</label></button>
+            <button class="side-link admin-side-link" data-admin-view="grades"><span class="side-icon">▥</span><label>Grades</label></button>
+            <button class="side-link admin-side-link" data-admin-view="attendance"><span class="side-icon">◉</span><label>Attendance</label></button>
+            <h4>SYSTEM</h4>
+            <button class="side-link admin-side-link" data-admin-view="announcements"><span class="side-icon">🔔</span><label>Announcements</label></button>
+            <button class="side-link admin-side-link" data-admin-view="reports"><span class="side-icon">▥</span><label>Reports</label></button>
+            <button class="side-link admin-side-link" data-admin-view="users"><span class="side-icon">♙</span><label>User Management</label></button>
+            <button class="side-link admin-side-link" data-admin-view="profile"><span class="side-icon">♙</span><label>Admin Profile</label></button>
+            <button class="logout-link" id="adminLogoutBtn">↪<span>Logout</span></button>
+        </aside>
+        <main class="dashboard-main">
+            <div id="adminDashboardHome" class="dashboard-view">
+                <div class="top-row">
+                    <div class="welcome-card"><div class="date-small" id="adminDashDate"></div><h3>Welcome back, <strong id="adminName">Admin</strong></h3><p>Here is your school portal overview.</p><button class="mini-btn" data-admin-view-jump="students">Manage Students</button></div>
+                    <div class="logout-card"><span class="power">⏻</span><div><strong>Admin Control Center</strong><small>Manage the CEC school portal</small></div><button id="adminQuickLogout">→</button></div>
+                </div>
+                <div class="feature-section"><div class="feature-heading"><h2>School Overview</h2><span>Admin</span></div><div class="feature-grid">
+                    <article class="feature-card"><span class="icon">♙</span><h3>Students</h3><p id="adminStudentCount">0 registered</p><small>Manage student accounts</small><b class="pill blue">Active</b></article>
+                    <article class="feature-card"><span class="icon green">♙</span><h3>Teachers</h3><p>24 active</p><small>Faculty accounts</small><b class="pill green-pill">Active</b></article>
+                    <article class="feature-card"><span class="icon orange">☑</span><h3>Subjects</h3><p>18 available</p><small>Academic subjects</small><b class="pill orange">Updated</b></article>
+                    <article class="feature-card"><span class="icon purple">▤</span><h3>Classes</h3><p>12 sections</p><small>Current school sections</small><b class="pill blue">Current</b></article>
+                    <article class="feature-card"><span class="icon yellow">+</span><h3>Enrollment</h3><p>8 pending</p><small>Applications to review</small><b class="pill orange">Pending</b></article>
+                    <article class="feature-card"><span class="icon">🔔</span><h3>Announcements</h3><p>3 published</p><small>School-wide updates</small><b class="pill blue">Published</b></article>
+                </div></div>
+                <div class="lower-grid">
+                    <section class="schedule-card"><div class="section-title"><div><h3>Recent Admin Activity</h3><span>School Portal</span></div><button data-admin-view-jump="reports">See Reports</button></div>
+                        <div class="schedule-item"><time>Today</time><i class="dot teal"></i><div><strong>Student account updated</strong><small>Student Management</small><small>Account information was updated.</small></div><b class="status ongoing">Done</b></div>
+                        <div class="schedule-item"><time>Today</time><i class="dot red"></i><div><strong>Enrollment applications</strong><small>Enrollment</small><small>8 applications are waiting for review.</small></div><b class="status urgent">Review</b></div>
+                        <div class="schedule-item"><time>Yesterday</time><i class="dot yellow"></i><div><strong>New announcement</strong><small>Announcements</small><small>School event announcement was published.</small></div><b class="status upcoming">Posted</b></div>
+                    </section>
+                    <section class="finance-card"><div class="finance-col"><div class="finance-title"><span>▣</span><h4>Quick Actions</h4></div>
+                        <button class="admin-quick-action" data-admin-view-jump="students">Manage Students</button><button class="admin-quick-action" data-admin-view-jump="teachers">Manage Teachers</button><button class="admin-quick-action" data-admin-view-jump="announcements">Post Announcement</button>
+                    </div><div class="finance-col"><div class="finance-title"><span>🔔</span><h4>Portal Alerts</h4></div><div class="alert-item"><b>Enrollment Review</b><small>8 student applications need attention.</small></div><div class="alert-item"><b>System Status</b><small>All portal services are running in demo mode.</small></div><div class="alert-item"><b>Account Security</b><small>Review user accounts regularly.</small></div></div></section>
+                </div>
+            </div>
+            <div id="adminContentView" class="dashboard-view hidden"></div>
+        </main>
+    </div>
+</section>
+<!-- TERMS AND CONDITIONS MODAL -->
+<div
+    id="termsModal"
+    class="terms-modal"
+>
+    <div class="terms-container">
+        <div class="terms-header">
+            <h2>
+                Terms and Conditions
+            </h2>
+            <button
+                type="button"
+                id="closeTerms"
+                class="close-terms"
+            >
+                &times;
+            </button>
+        </div>
+        <div class="terms-content">
+            <h3>
+                1. Account Registration
+            </h3>
+            <p>
+                Users must provide accurate and complete information
+                when creating an account. The account information should
+                be kept updated when necessary.
+            </p>
+            <h3>
+                2. User Responsibilities
+            </h3>
+            <p>
+                Users are responsible for keeping their account
+                information and password secure. Users should not
+                share their login credentials with other people.
+            </p>
+            <h3>
+                3. Proper Use of the System
+            </h3>
+            <p>
+                The system should only be used for legitimate academic
+                purposes such as viewing information, managing subjects,
+                and completing student-related transactions.
+            </p>
+            <h3>
+                4. Privacy and Data
+            </h3>
+            <p>
+                Information provided by users may be used for
+                account management and academic-related services.
+                Users should provide information that is accurate
+                and appropriate.
+            </p>
+            <h3>
+                5. System Security
+            </h3>
+            <p>
+                Users must not attempt to access another person's
+                account or interfere with the normal operation
+                and security of the system.
+            </p>
+            <h3>
+                6. Agreement
+            </h3>
+            <p>
+                By creating an account, the user confirms that they
+                have read and understood these Terms and Conditions
+                and agree to follow them.
+            </p>
+        </div>
+        <div class="terms-footer">
+            <button
+                type="button"
+                id="agreeTerms"
+                class="agree-terms-btn"
+            >
+                I Agree
+            </button>
+        </div>
+    </div>
+</div>
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+<section
+    id="dashboardPage"
+    class="page dashboard-page hidden"
+>
+    <!-- =================================================
+         DASHBOARD HEADER
+    ================================================== -->
+    <header class="dash-header">
+        <div class="brand">
+            <img
+                src="assets/cec-logo.png"
+                alt="CEC Logo"
+            >
+            <span>
+                CEC <b>PORTAL</b>
+            </span>
+        </div>
+        <nav class="dash-nav">
+            <button class="active">
+                HOME
+            </button>
+            <button>
+                ABOUT
+            </button>
+            <button>
+                PROGRAM
+            </button>
+            <button>
+                CONTACT
+            </button>
+        </nav>
+        <button
+            class="profile-circle"
+            id="profileBtn"
+            title="Profile"
+        >
+            ♙
+        </button>
+    </header>
+    <!-- =================================================
+         DASHBOARD BODY
+    ================================================== -->
+    <div class="dashboard-body">
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+        <aside class="sidebar">
+            <div class="sidebar-profile">
+                <div class="sidebar-avatar">
+                    ♙
+                </div>
+                <div>
+                    <strong id="sidebarStudentName">
+                        John
+                    </strong>
+                    <span>
+                        Student
+                    </span>
+                </div>
+            </div>
+            <div class="side-tools">
+                <button>
+                    🔔
+                    <small>
+                        Notifications
+                    </small>
+                </button>
+                <button>
+                    ⚙
+                    <small>
+                        Settings
+                    </small>
+                </button>
+            </div>
+            <h4>
+                ACADEMIC
+            </h4>
+            <button
+                class="side-link active"
+                data-view="home"
+            >
+                <span class="side-icon">
+                    ▣
+                </span>
+                <label>
+                    Class Schedule
+                </label>
+            </button>
+            <button
+                class="side-link"
+                data-view="grades"
+            >
+                <span class="side-icon">
+                    ▥
+                </span>
+                <label>
+                    Grades &amp; GPA
+                </label>
+            </button>
+            <button
+                class="side-link"
+                data-view="attendance"
+            >
+                <span class="side-icon">
+                    ◉
+                </span>
+                <label>
+                    Attendance Records
+                </label>
+            </button>
+            <button
+                class="side-link"
+                data-view="subjects"
+            >
+                <span class="side-icon">
+                    ☑
+                </span>
+                <label>
+                    Subject Enlistment
+                </label>
+            </button>
+            <button
+                class="side-link"
+                data-view="syllabi"
+            >
+                <span class="side-icon">
+                    ▤
+                </span>
+                <label>
+                    Syllabi &amp; Materials
+                </label>
+            </button>
+            <button
+                class="side-link"
+                data-view="calendar"
+            >
+                <span class="side-icon">
+                    ◫
+                </span>
+                <label>
+                    Calendar &amp; Events
+                </label>
+            </button>
+            <h4>
+                FINANCE &amp; PROFILE
+            </h4>
+            <button
+                class="side-link"
+                data-view="tuition"
+            >
+                <span class="side-icon">
+                    ₱
+                </span>
+                <label>
+                    Tuition &amp; Payments
+                </label>
+            </button>
+            <button
+                class="side-link"
+                data-view="profile"
+            >
+                <span class="side-icon">
+                    ♙
+                </span>
+                <label>
+                    Profile &amp; Contact
+                </label>
+            </button>
+            <button
+                class="logout-link"
+                id="logoutBtn"
+            >
+                ↪
+                <span>
+                    Logout
+                </span>
+            </button>
+        </aside>
+        <!-- =================================================
+             DASHBOARD MAIN
+        ================================================== -->
+        <main class="dashboard-main">
+            <!-- HOME DASHBOARD -->
+            <div
+                id="dashboardHome"
+                class="dashboard-view"
+            >
+                <!-- TOP -->
+                <div class="top-row">
+                    <div class="welcome-card">
+                        <div
+                            class="date-small"
+                            id="dashDate"
+                        >
+                        </div>
+                        <h3>
+                            Welcome back,
+                            <strong id="studentName">
+                                John
+                            </strong>
+                        </h3>
+                        <p>
+                            Here is your academic overview.
+                        </p>
+                        <button
+                            class="mini-btn"
+                            data-view-jump="calendar"
+                        >
+                            View Full Schedule
+                        </button>
+                    </div>
+                    <div class="logout-card">
+                        <span class="power">
+                            ⏻
+                        </span>
+                        <div>
+                            <strong>
+                                Log out of CEC Portal
+                            </strong>
+                            <small>
+                                Return to Login Page
+                            </small>
+                        </div>
+                        <button id="logoutBtn2">
+                            →
+                        </button>
+                    </div>
+                </div>
+                <!-- =================================================
+                     HORIZONTAL FEATURE CARDS
+                ================================================== -->
+                <div class="feature-section">
+                    <div class="feature-heading">
+                        <h2>
+                            Academic Overview
+                        </h2>
+                        <span>
+                            Scroll →
+                        </span>
+                    </div>
+                    <div class="feature-grid">
+                        <article class="feature-card">
+                            <span class="icon">
+                                ▣
+                            </span>
+                            <h3>
+                                Class Schedule
+                            </h3>
+                            <p>
+                                4 classes today
+                            </p>
+                            <small>
+                                Next class: 10:30 AM
+                            </small>
+                            <b class="pill blue">
+                                On Track
+                            </b>
+                        </article>
+                        <article class="feature-card">
+                            <span class="icon">
+                                ▥
+                            </span>
+                            <h3>
+                                Grades &amp; GPA
+                            </h3>
+                            <p>
+                                Current GPA: 1.75
+                            </p>
+                            <small>
+                                Academic performance
+                            </small>
+                            <b class="pill blue">
+                                Good Standing
+                            </b>
+                        </article>
+                        <article class="feature-card">
+                            <span class="icon green">
+                                ◉
+                            </span>
+                            <h3>
+                                Attendance
+                            </h3>
+                            <p>
+                                96% Present
+                            </p>
+                            <small>
+                                This semester
+                            </small>
+                            <b class="pill green-pill">
+                                Good
+                            </b>
+                        </article>
+                        <article class="feature-card">
+                            <span class="icon orange">
+                                ☑
+                            </span>
+                            <h3>
+                                Subject Enlistment
+                            </h3>
+                            <p>
+                                Enrollment opens soon
+                            </p>
+                            <small>
+                                Next term
+                            </small>
+                            <b class="pill orange">
+                                Opens Sep 20
+                            </b>
+                        </article>
+                        <article class="feature-card">
+                            <span class="icon purple">
+                                ▤
+                            </span>
+                            <h3>
+                                Syllabi &amp; Materials
+                            </h3>
+                            <p>
+                                2 new files
+                            </p>
+                            <small>
+                                Recently uploaded
+                            </small>
+                            <b class="pill blue">
+                                New
+                            </b>
+                        </article>
+                        <article class="feature-card">
+                            <span class="icon yellow">
+                                ◫
+                            </span>
+                            <h3>
+                                Calendar &amp; Events
+                            </h3>
+                            <p>
+                                3 upcoming events
+                            </p>
+                            <small>
+                                Check your schedule
+                            </small>
+                            <b class="pill blue">
+                                Updated
+                            </b>
+                        </article>
+                    </div>
+                </div>
+                <!-- =================================================
+                     LOWER CONTENT
+                ================================================== -->
+                <div class="lower-grid">
+                    <!-- SCHEDULE -->
+                    <section class="schedule-card">
+                        <div class="section-title">
+                            <div>
+                                <h3>
+                                    Today's Schedule
+                                </h3>
+                                <span>
+                                    September 6
+                                </span>
+                            </div>
+                            <button
+                                data-view-jump="calendar"
+                            >
+                                See All
+                            </button>
+                        </div>
+                        <div class="schedule-item">
+                            <time>
+                                8:00 AM
+                            </time>
+                            <i class="dot teal"></i>
+                            <div>
+                                <strong>
+                                    Information Security
+                                </strong>
+                                <small>
+                                    Lecture
+                                </small>
+                                <small>
+                                    Room CL-6 · Prof. Sadora
+                                </small>
+                            </div>
+                            <b class="status ongoing">
+                                Ongoing
+                            </b>
+                        </div>
+                        <div class="schedule-item">
+                            <time>
+                                10:30 AM
+                            </time>
+                            <i class="dot red"></i>
+                            <div>
+                                <strong>
+                                    System Integration
+                                </strong>
+                                <small>
+                                    Defense
+                                </small>
+                                <small>
+                                    Lab 4 · Group presentation
+                                </small>
+                            </div>
+                            <b class="status urgent">
+                                Urgent
+                            </b>
+                        </div>
+                        <div class="schedule-item">
+                            <time>
+                                1:00 PM
+                            </time>
+                            <i class="dot yellow"></i>
+                            <div>
+                                <strong>
+                                    Multimedia Workshop
+                                </strong>
+                                <small>
+                                    Workshop
+                                </small>
+                                <small>
+                                    Room H204 · Prof. Vince
+                                </small>
+                            </div>
+                            <b class="status upcoming">
+                                Upcoming
+                            </b>
+                        </div>
+                    </section>
+                    <!-- FINANCE -->
+                    <section class="finance-card">
+                        <div class="finance-col">
+                            <div class="finance-title">
+                                <span>
+                                    💳
+                                </span>
+                                <h4>
+                                    Tuition &amp; Payments
+                                </h4>
+                            </div>
+                            <p>
+                                <b>
+                                    Outstanding Balance
+                                </b>
+                                <strong>
+                                    ₱4,000
+                                </strong>
+                            </p>
+                            <p>
+                                <b>
+                                    2nd Installment
+                                </b>
+                                <strong>
+                                    ₱2,500
+                                </strong>
+                                <small>
+                                    Due Friday, Sep 6
+                                </small>
+                            </p>
+                            <p>
+                                <b>
+                                    Miscellaneous Fee
+                                </b>
+                                <strong class="teal-text">
+                                    ₱850
+                                </strong>
+                                <small>
+                                    Paid Aug 20
+                                </small>
+                            </p>
+                            <button
+                                class="pay-btn"
+                                id="payBtn"
+                            >
+                                Make Payment
+                            </button>
+                        </div>
+                        <div class="finance-col">
+                            <div class="finance-title">
+                                <span>
+                                    🔔
+                                </span>
+                                <h4>
+                                    Portal Alerts
+                                </h4>
+                            </div>
+                            <div class="alert-item">
+                                <b>
+                                    Tuition Payment Deadline
+                                </b>
+                                <small>
+                                    Pay through the Finance tab.
+                                </small>
+                            </div>
+                            <div class="alert-item">
+                                <b>
+                                    Grade Release
+                                </b>
+                                <small>
+                                    Midterm grades are now posted.
+                                </small>
+                            </div>
+                            <div class="alert-item">
+                                <b>
+                                    Library Extended Hours
+                                </b>
+                                <small>
+                                    Open until 9 PM during finals week.
+                                </small>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- DYNAMIC CONTENT -->
+            <div
+                id="contentView"
+                class="dashboard-view hidden"
+            ></div>
+        </main>
+    </div>
+</section>
+<script src="js/app.js"></script>
 </body>
 </html>

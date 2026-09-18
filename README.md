@@ -7,10 +7,11 @@ A plain HTML, CSS, and JavaScript school portal backed by Firebase.
 ```text
 frontend/
 	index.html                    Main dashboard page
-	css/styles.css                Shared visual styles
+	css/style.css                 Shared visual styles
 	js/app.js                     Page behavior and temporary dashboard data
 	js/firebase-init.js           Firebase app, Auth, and Firestore initialization
 	js/firebase-config.example.js Configuration template
+	assets/                       School logo and campus images
 backend/
 	firebase.json                 Firebase Hosting and Firestore configuration
 	firestore.rules               Firestore security rules
