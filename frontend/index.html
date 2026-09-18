@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple school portal dashboard.">
+  <title>School Portal</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Section 1 <span>School Portal</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#announcements">Announcements</a>
+      <a href="#quick-links">Quick links</a>
+      <button class="button button-outline" id="sign-out-button" type="button">Sign out</button>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="welcome-panel" aria-labelledby="welcome-title">
+      <div>
+        <p class="eyebrow">Student dashboard</p>
+        <h1 id="welcome-title">Good morning, <span id="student-name">Student</span>.</h1>
+        <p class="welcome-copy">Stay close to your classes, assignments, and the people who keep your school day moving.</p>
+      </div>
+      <div class="date-block">
+        <span id="current-day">Today</span>
+        <strong id="current-date">Loading date...</strong>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="School summary">
+      <article class="stat-card"><span class="stat-label">Attendance</span><strong>96%</strong><span class="stat-note">This term</span></article>
+      <article class="stat-card"><span class="stat-label">Assignments</span><strong>04</strong><span class="stat-note">Due this week</span></article>
+      <article class="stat-card"><span class="stat-label">Next class</span><strong>09:30</strong><span class="stat-note">Mathematics</span></article>
+    </section>
+
+    <div class="content-grid">
+      <section class="content-section" id="announcements" aria-labelledby="announcements-title">
+        <div class="section-heading"><div><p class="eyebrow">Stay informed</p><h2 id="announcements-title">Announcements</h2></div><button class="text-button" type="button">View all</button></div>
+        <div class="announcement-list" id="announcement-list"><p class="empty-state">Loading announcements...</p></div>
+      </section>
+
+      <aside class="content-section quick-links" id="quick-links" aria-labelledby="quick-links-title">
+        <div class="section-heading"><div><p class="eyebrow">Your shortcuts</p><h2 id="quick-links-title">Quick links</h2></div></div>
+        <a class="quick-link" href="#">Class schedule <span aria-hidden="true">&#8594;</span></a>
+        <a class="quick-link" href="#">Assignments <span aria-hidden="true">&#8594;</span></a>
+        <a class="quick-link" href="#">Messages <span aria-hidden="true">&#8594;</span></a>
+        <a class="quick-link" href="#">Student profile <span aria-hidden="true">&#8594;</span></a>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">&copy; <span id="current-year"></span> Section 1 School Portal</footer>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
